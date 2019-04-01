@@ -1,0 +1,7 @@
+{
+  "name": "film",
+  "short_name": "film",
+  "description": "Aplication search film api",
+  "start_url": "/",
+  "display": "standalone"
+}
