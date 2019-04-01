@@ -1,5 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-
+import '@polymer/iron-ajax/iron-ajax.js';
+import "./film-search";
 /**
  * @customElement
  * @polymer
@@ -12,7 +13,10 @@ class FilmApp extends PolymerElement {
           display: block;
         }
       </style>
-      <h2>Hello [[prop1]]!</h2>
+      <header>
+        <h1>Buscador de peliculas</h1>
+      </header>
+      <film-search></film-search>
     `;
   }
   static get properties() {
