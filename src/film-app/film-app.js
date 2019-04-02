@@ -22,21 +22,38 @@ class FilmApp extends PolymerElement {
       </style>
       <h2>Buscador de peliculas</h2>  
       <film-search on-load-film="loadFilm"></film-search>
-      <iron-ajax></iron-ajax>
+      <iron-ajax
+          id="ironAjax"
+          url=""
+          handle-as="json"
+          last-response="{{dataFilms}}"
+          debounce-duration="300">
+      </iron-ajax>      
     `;
     }
 
     static get properties() {
         return {
-            prop1: {
-                type: String,
-                value: 'film-app'
-            }
+           valueSearch:String,
+           dataFilms:Object,
+           response:String,
+           totalResults:String
         };
     }
 
     loadFilm(e){
-      console.log(e);
+      this.valueSearch = e.detail.value
+      const url = `http://www.omdbapi.com/?s=${this.valueSearch}&apikey=e477ed6a`
+      const ironAjax = this.$.ironAjax
+      ironAjax.url= url
+      ironAjax.generateRequest().completes
+        .then(request=>{
+          console.log(this.dataFilms);
+          this.dataFilms = this.dataFilms.Search
+          this.response = this.dataFilms.Response
+          this.totalResults = this.dataFilms.totalResults
+          console.log(this.dataFilms);
+        })
     }
    
 }

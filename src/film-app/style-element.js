@@ -4,11 +4,12 @@ styleElement.innerHTML =
   `<template>
     <style>
         :root{
-          --color-primary:#c62828;
-          --color-primary-light:#ff5f52;
-          --color-primary-dark:#8e0000;
+          --color-primary:#D4002E;
+          --color-primary-light:#FD0738;
+          --color-primary-dark:#CF022B;
           --color-text-primary:#ffffff;
           --color-text-secondary:#000000;
+          --color-btn-primary: var(--color-primary-dark,red);
         }
 
         :host{

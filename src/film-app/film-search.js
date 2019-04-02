@@ -42,7 +42,7 @@ class filmSearch extends PolymerElement {
               
                paper-button{
                 --paper-button :{
-                    background-color:var(--color-primary);
+                    background-color:var(--color-btn-primary);
                 
                 }
                }
