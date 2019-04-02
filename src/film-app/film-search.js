@@ -1,4 +1,5 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import "./style-element.js";
 import '@polymer/paper-button/paper-button.js';
 import '@polymer/iron-input/iron-input.js';
 /**
@@ -21,29 +22,53 @@ class filmSearch extends PolymerElement {
 
     static get template() {
         return html`
+            <style include="style-element">
+               iron-input{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top:20px;
+               }
+
+               iron-input input{
+                   width:70%;   
+               }
+
+               iron-input input::placeholder{
+                   font-size:1rem;
+                   padding-left:5px;
+               }
+
+              
+               paper-button{
+                --paper-button :{
+                    background-color:var(--color-primary);
+                
+                }
+               }
+
+
+            </style>
             <iron-input>
-                <input value="{{value::input}}" placeholder="buscador">
-                <paper-button>Flat button</paper-button>
+                <input value="{{value::input}}" placeholder="Buscar Película...">
+                <paper-button on-click="searchFilm">Buscar</paper-button>
             </iron-input>
         `;
     }
 
-    /**
-     * Instance of the element is created/upgraded. Use: initializing state,
-     * set up event listeners, create shadow dom.
-     * @constructor
-     */
-    constructor() {
-        super();
+    searchFilm(e){
+        let event = new CustomEvent('load-film', {
+            detail:{
+                value:this.value
+            },
+            bubbles:true,
+            composed:true
+        })
+
+        this.dispatchEvent(event)
     }
 
-    /**
-     * Use for one-time configuration of your component after local
-     * DOM is initialized.
-     */
-    ready() {
-        super.ready();
-    }
+    
 }
 
 customElements.define('film-search', filmSearch);

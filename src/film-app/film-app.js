@@ -1,7 +1,7 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
-
+import "./style-element.js";
 import '@polymer/iron-ajax/iron-ajax.js';
-import "./film-search";
+import "../film-app/film-search.js";
 /**
  * @customElement
  * @polymer
@@ -9,17 +9,23 @@ import "./film-search";
 class FilmApp extends PolymerElement {
     static get template() {
         return html `
-      <style>
+      <style include="style-element">
         :host {
           display: block;
         }
+        h2{
+            background-color: var(--color-primary);
+            margin:0;
+            padding: 1rem;
+          }
+       
       </style>
-      <header>
-        <h1>Buscador de peliculas v2</h1>
-      </header>
-      <film-search></film-search>
+      <h2>Buscador de peliculas</h2>  
+      <film-search on-load-film="loadFilm"></film-search>
+      <iron-ajax></iron-ajax>
     `;
     }
+
     static get properties() {
         return {
             prop1: {
@@ -28,6 +34,11 @@ class FilmApp extends PolymerElement {
             }
         };
     }
+
+    loadFilm(e){
+      console.log(e);
+    }
+   
 }
 
 window.customElements.define('film-app', FilmApp);

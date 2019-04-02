@@ -2,11 +2,13 @@
   "name": "film",
   "description": "Aplication search film api",
   "dependencies": {
+    "@material/typography": "^1.0.0",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/iron-input": "^3.0.1",
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-input": "^3.0.1",
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "destyle.css": "^1.0.5"
   },
   "devDependencies": {
     "@polymer/test-fixture": "^4.0.2",
