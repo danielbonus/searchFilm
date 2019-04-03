@@ -9,7 +9,7 @@ styleElement.innerHTML =
           --color-primary-dark:#CF022B;
           --color-text-primary:#ffffff;
           --color-text-secondary:#000000;
-          --color-btn-primary: var(--color-primary-dark,red);
+          --color-btn-primary: var(--color-primary-dark,#D4002E);  
         }
 
         :host{

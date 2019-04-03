@@ -56,6 +56,7 @@ class filmSearch extends PolymerElement {
         `;
     }
 
+
     searchFilm(e){
         let event = new CustomEvent('load-film', {
             detail:{
