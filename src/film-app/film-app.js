@@ -28,7 +28,7 @@ class FilmApp extends PolymerElement {
         section {
           display:grid;
           grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-          grid-auto-rows:repeat(auto-fit, minmax(444));
+          grid-template-rows:repeat(auto-fit, 400px));
           grid-gap:.5rem;
           padding: 2rem;
           margin: 0 auto;
@@ -91,7 +91,7 @@ class FilmApp extends PolymerElement {
 
     loadFilm(e){
       this.valueSearch = e.detail.value
-      const url = `http://www.omdbapi.com/?s=${this.valueSearch}&apikey=e477ed6a`
+      const url = `http://www.omdbapi.com/?s=${this.valueSearch}&plot=full&apikey=e477ed6a`
       const ironAjax = this.$.ironAjax
       ironAjax.url= url
       ironAjax.generateRequest().completes
