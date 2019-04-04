@@ -50,7 +50,7 @@ class filmSearch extends PolymerElement {
 
             </style>
             <iron-input>
-                <input value="{{value::input}}" placeholder="Buscar Película...">
+                <input on-keypress="searchFilm" value="{{value::input}}" placeholder="Buscar Película...">
                 <paper-button on-click="searchFilm">Buscar</paper-button>
             </iron-input>
         `;
@@ -58,17 +58,20 @@ class filmSearch extends PolymerElement {
 
 
     searchFilm(e){
-        let event = new CustomEvent('load-film', {
-            detail:{
-                value:this.value
-            },
-            bubbles:true,
-            composed:true
-        })
-
-        this.dispatchEvent(event)
+       
+        if((e.type == 'keypress' && e.charCode == 13) || e.type == 'click'){
+            let event = new CustomEvent('load-film', {
+                detail:{
+                    value:this.value
+                },
+                bubbles:true,
+                composed:true
+            })
+    
+            this.dispatchEvent(event) 
+        }
+      
     }
-
     
 }
 
